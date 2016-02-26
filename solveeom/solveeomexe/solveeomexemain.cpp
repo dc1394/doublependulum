@@ -14,11 +14,11 @@ int main()
     init(1.0f, 0.05f, 0.5235988f, 0.5235988f);
     saveresult(0.001, "double_pendulum_30.csv", 30.0);
 
-    init(1.0f, 0.05f, 1.5533430f, 1.5533430f);
-    saveresult(0.001, "double_pendulum_89.csv", 30.0);
+    init(1.0f, 0.05f, 3.1241394f, 3.1241394f);
+    saveresult(0.001, "double_pendulum_179.csv", 30.0);
 
-    init(1.0f, 0.05f, 1.5550884f, 1.5550884f);
-    saveresult(0.001, "double_pendulum_89_1.csv", 30.0);
+    init(1.0f, 0.05f, 3.1258847f, 3.1258847f);
+    saveresult(0.001, "double_pendulum_179_1.csv", 30.0);
 
     return 0;
 }
