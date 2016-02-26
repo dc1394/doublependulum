@@ -54,16 +54,6 @@ namespace DoublePendulum
         private Boolean exec = false;
 
         /// <summary>
-        /// 球1の初期座標
-        /// </summary>
-        private Vector3 firstsphere1pos;
-
-        /// <summary>
-        /// 球2の初期座標
-        /// </summary>
-        private Vector3 firstsphere2pos;
-
-        /// <summary>
         /// θ1の初期値
         /// </summary>
         private float firsttheta1;
@@ -309,7 +299,7 @@ namespace DoublePendulum
             this.velocity2 = GUI.HorizontalSlider(new Rect(200.0f, ypos2, 100.0f, 20.0f), this.velocity2, -20.0f, 20.0f);
             if (Mathf.Abs(this.velocity2 - velocity2before) > Mathf.Epsilon)
             {
-                Solveeomcs.SolveEOMcs.SetV1(this.velocity2 / this.ropeLength);
+                Solveeomcs.SolveEOMcs.SetV2(this.velocity2 / this.ropeLength);
             }
 
             ypos2 += 20.0f;
@@ -469,9 +459,7 @@ namespace DoublePendulum
             this.ropeLength = Vector3.Distance(this.origin, this.sphere1.transform.position);
 
             this.theta1deg = this.GetThetaDeg(this.origin, this.sphere1);
-            this.theta2deg = this.GetThetaDeg(this.firstsphere1pos = this.sphere1.transform.position, this.sphere2);
-
-            this.firstsphere2pos = this.sphere2.transform.position;
+            this.theta2deg = this.GetThetaDeg(this.sphere1.transform.position, this.sphere2);
 
             Solveeomcs.SolveEOMcs.Init(
                 this.ropeLength,
