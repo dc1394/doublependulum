@@ -14,6 +14,9 @@ int main()
     init(1.0f, 0.05f, 0.5235988f, 0.5235988f);
     saveresult(0.001, "double_pendulum_30.csv", 30.0);
 
+    init(1.0f, 0.05f, 1.5707963f, 1.0471976f);
+    saveresult(0.001, "double_pendulum_60.csv", 30.0);
+
     init(1.0f, 0.05f, 1.5707963f, 1.5707963f);
     saveresult(0.001, "double_pendulum_90.csv", 30.0);
 
