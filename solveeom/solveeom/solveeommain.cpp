@@ -33,9 +33,19 @@ extern "C" {
         pse = boost::in_place(l, m, theta1_0, theta2_0);
     }
     
+    float __stdcall kinetic_energy()
+    {
+        return pse->kinetic_energy();
+    }
+
     void __stdcall nextstep(float dt, float * theta1, float * theta2)
     {
         (*pse)(dt, theta1, theta2);
+    }
+
+    float __stdcall potential_energy()
+    {
+        return pse->potential_energy();
     }
 
     void __stdcall saveresult(double dt, std::string const & filename, double t)

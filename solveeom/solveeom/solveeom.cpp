@@ -32,6 +32,13 @@ namespace solveeom {
 
     // #region publicメンバ関数
         
+    float SolveEOM::kinetic_energy() const
+    {
+        return static_cast<float>(
+            m_ * l_ * l_ * (sqr(x_[1]) + 0.5 * sqr(x_[3])) +
+            m_ * l_ * l_ * x_[1] * x_[3] * std::cos(x_[0] - x_[2]));
+    }
+
     void SolveEOM::operator()(float dt, float * theta1, float * theta2)
     {
         boost::numeric::odeint::integrate_adaptive(
@@ -63,6 +70,11 @@ namespace solveeom {
         });
     }
 
+    float SolveEOM::potential_energy() const
+    {
+        return static_cast<float>(m_ * SolveEOM::g * l_ * (3.0 - 2.0 * std::cos(x_[0]) - std::cos(x_[2])));
+    }
+
     // #endregion publicメンバ関数
 
     // #region privateメンバ関数
@@ -72,13 +84,13 @@ namespace solveeom {
         auto const eom = [this](state_type const & x, state_type & dxdt, double const)
         {
             // Delta is θ2 - θ1
-            const double delta = x[Num_eqns::THETA_2] - x[Num_eqns::THETA_1];
+            auto const delta = x[Num_eqns::THETA_2] - x[Num_eqns::THETA_1];
 
             // `Big-M' is the total mass of the system, m1 + m2;
-            const double M = 2.0 * m_;
+            auto const M = 2.0 * m_;
 
             // Denominator expression for ω1
-            double den = M * l_ - m_ * l_ * std::cos(delta) * std::cos(delta);
+            auto den = M * l_ - m_ * l_ * std::cos(delta) * std::cos(delta);
 
             // dθ/dt = ω, by definition
             dxdt[Num_eqns::THETA_1] = x[Num_eqns::OMEGA_1];

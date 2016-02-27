@@ -63,12 +63,26 @@ extern "C" {
 
     //! A global function.
     /*!
+        運動エネルギーを求める
+        \return 運動エネルギー
+    */
+    DLLEXPORT float __stdcall kinetic_energy();
+
+    //! A global function.
+    /*!
         次のステップを計算する
         \param dt 経過した時間
         \return theta1 θ1の値
         \return theta2 θ2の値
     */
     DLLEXPORT void __stdcall nextstep(float dt, float * theta1, float * theta2);
+
+    //! A global function.
+    /*!
+        ポテンシャルエネルギーを求める
+        \return ポテンシャルエネルギー
+    */
+    DLLEXPORT float __stdcall potential_energy();
 
     //! A global function.
     /*!

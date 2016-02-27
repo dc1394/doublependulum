@@ -226,6 +226,29 @@ namespace DoublePendulum
                 new Rect(20.0f, ypos, 160.0f, 20.0f),
                 String.Format("速度v2 = {0:F3}(m/s)", this.ropeLength * Solveeomcs.SolveEOMcs.GetV2()));
 
+            ypos += 20.0f;
+
+            // ラベルに運動エネルギーの値を表示する
+            var kinetic = Solveeomcs.SolveEOMcs.Kinetic_Energy();
+            GUI.Label(
+                new Rect(20.0f, ypos, 180.0f, 20.0f),
+                String.Format("運動エネルギー = {0:F3}(J)", kinetic));
+
+            ypos += 20.0f;
+
+            // ラベルにポテンシャルエネルギーの値を表示する
+            var potential = Solveeomcs.SolveEOMcs.Potential_Energy();
+            GUI.Label(
+                new Rect(20.0f, ypos, 170.0f, 20.0f),
+                String.Format("ポテンシャル = {0:F3}(J)", potential));
+
+            ypos += 20.0f;
+
+            // ラベルに全エネルギーの値を表示する
+            GUI.Label(
+                new Rect(20.0f, ypos, 170.0f, 20.0f),
+                String.Format("全エネルギー = {0:F3}(J)", kinetic + potential));
+
             var ypos2 = 20.0f;
 
             // 軌跡を表示するかどうかのチェックボックスを表示する
@@ -335,6 +358,10 @@ namespace DoublePendulum
                 this.RopeUpdate();
 
                 this.PosHistoryInit();
+                this.theta1deg = Mathf.Rad2Deg * this.firsttheta1;
+                this.theta2deg = Mathf.Rad2Deg * this.firsttheta2;
+                this.velocity1 = 0.0f;
+                this.velocity2 = 0.0f;
             }
 
             ypos3 += 30.0f;

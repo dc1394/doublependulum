@@ -16,6 +16,15 @@
 namespace solveeom {
     using namespace utility;
 
+    //! A function.
+    /*!
+        値を二乗する関数
+        \param x 値
+        \return xを二乗した値
+    */
+    template <typename T>
+    T sqr(T x);
+
     //! A class.
     /*!
         二重振り子に対して運動方程式を解くクラス
@@ -67,6 +76,13 @@ namespace solveeom {
 
         //! A public member function.
         /*!
+            運動エネルギーを求める
+            \return 運動エネルギー
+        */
+        float kinetic_energy() const;
+
+        //! A public member function.
+        /*!
             運動方程式を、指定された時間まで積分する
             \param dt 指定時間
             \return theta1 θ1の値
@@ -83,6 +99,13 @@ namespace solveeom {
         */
         void operator()(double dt, std::string const & filename, double t);
 
+        //! A public member function.
+        /*!
+            ポテンシャルエネルギーを求める
+            \return ポテンシャルエネルギー
+        */
+        float potential_energy() const;
+        
         // #endregion publicメンバ関数
 
     private:
@@ -197,6 +220,16 @@ namespace solveeom {
 
         // #endregion 禁止されたコンストラクタ・メンバ関数
     };
+    
+    // #region template関数の実装
+
+    template <typename T>
+    inline T sqr(T x)
+    {
+        return x * x;
+    }
+
+    // #endregion template関数の実装
 }
 
 #endif  // _SOLVEEOM_H_

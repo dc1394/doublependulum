@@ -54,7 +54,14 @@ namespace Solveeomcs
         /// <param name="theta2_0">θ2の初期値</param>
         [DllImport("solveeom", EntryPoint = "init")]
         public static extern void Init(float l, float m, float theta1_0, float theta2_0);
-
+        
+        /// <summary>
+        /// 運動エネルギーを求める
+        /// </summary>
+        /// <returns>運動エネルギー</returns>
+        [DllImport("solveeom", EntryPoint = "kinetic_energy")]
+        public static extern float Kinetic_Energy();
+        
         /// <summary>
         /// 次のステップを計算する
         /// </summary>
@@ -64,6 +71,13 @@ namespace Solveeomcs
         [DllImport("solveeom", EntryPoint = "nextstep")]
         public static unsafe extern float NextStep(float dt, float * theta1, float * theta2);
         
+        /// <summary>
+        /// ポテンシャルエネルギーを求める
+        /// </summary>
+        /// <returns>ポテンシャルエネルギー</returns>
+        [DllImport("solveeom", EntryPoint = "potential_energy")]
+        public static extern float Potential_Energy();
+
         /// <summary>
         /// 角度θ1の値に対するsetter
         /// </summary>
