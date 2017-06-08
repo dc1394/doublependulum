@@ -231,23 +231,23 @@ namespace DoublePendulum
             // ラベルに運動エネルギーの値を表示する
             var kinetic = Solveeomcs.SolveEOMcs.Kinetic_Energy();
             GUI.Label(
-                new Rect(20.0f, ypos, 180.0f, 20.0f),
-                String.Format("運動エネルギー = {0:F3}(J)", kinetic));
+                new Rect(20.0f, ypos, 200.0f, 20.0f),
+                String.Format("運動エネルギー = {0:F5}(J)", kinetic));
 
             ypos += 20.0f;
 
             // ラベルにポテンシャルエネルギーの値を表示する
             var potential = Solveeomcs.SolveEOMcs.Potential_Energy();
             GUI.Label(
-                new Rect(20.0f, ypos, 170.0f, 20.0f),
-                String.Format("ポテンシャル = {0:F3}(J)", potential));
+                new Rect(20.0f, ypos, 200.0f, 20.0f),
+                String.Format("ポテンシャル = {0:F5}(J)", potential));
 
             ypos += 20.0f;
 
             // ラベルに全エネルギーの値を表示する
             GUI.Label(
-                new Rect(20.0f, ypos, 170.0f, 20.0f),
-                String.Format("全エネルギー = {0:F3}(J)", kinetic + potential));
+                new Rect(20.0f, ypos, 200.0f, 20.0f),
+                String.Format("全エネルギー = {0:F5}(J)", kinetic + potential));
 
             var ypos2 = 20.0f;
 
@@ -279,7 +279,7 @@ namespace DoublePendulum
 
             ypos2 += 20.0f;
 
-            // 「角度θ1」と表示する
+            // 「角度θ2」と表示する
             GUI.Label(new Rect(200.0f, ypos2, 100.0f, 20.0f), "角度θ2");
 
             ypos2 += 20.0f;
