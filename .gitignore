@@ -41,3 +41,4 @@ Thumbs.db
 *.pdb
 *.exe
 *.csv
+/solveeom/.vs/solveeom/v15
