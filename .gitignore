@@ -4,11 +4,17 @@
 [Oo]bj/
 UnityGenerated/
 ProjectSettings/*.asset
+doublependulum_Data/
+doublependulum_x64_Data
+Assets/Plugins/
 
 # ----[ Visual Studio / MonoDevelop generated ]------- #
 
 Debug/
 x64/
+solveeom/Release/
+solveeom/x64/
+solveeom/solveeomcs/bin/
 ExportedObj/
 *.svd
 *.userprefs
@@ -41,4 +47,5 @@ Thumbs.db
 *.pdb
 *.exe
 *.csv
+*.dll
 /solveeom/.vs/solveeom/v15
