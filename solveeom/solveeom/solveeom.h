@@ -118,6 +118,13 @@ namespace solveeom {
         */
         std::function<void(state_type const &, state_type &, double const)> getEOM() const;
 
+		//! A public member function.
+		/*!
+			ポテンシャルエネルギーを求める
+			\return ポテンシャルエネルギー
+		*/
+		double total_energy() const;
+		
         // #endregion privateメンバ関数
 
         // #region プロパティ

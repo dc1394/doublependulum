@@ -64,9 +64,9 @@ namespace solveeom {
             0.0,
             t,
             dt,
-            [&result](auto const & x, auto const t)
+            [&result, this](auto const & x, auto const t)
         {
-            result << boost::format("%.3f, %15f, %.15f\n") % t % x[0] % x[2];
+			result << boost::format("%.3f, %.15f, %.15f, %.15f\n") % t % x[0] % x[2] % total_energy();
         });
     }
 
@@ -116,6 +116,14 @@ namespace solveeom {
 
         return eom;
     }
+
+	double SolveEOM::total_energy() const
+	{
+		auto const kinetic = m_ * l_ * l_ * (sqr(x_[1]) + 0.5 * sqr(x_[3])) + m_ * l_ * l_ * x_[1] * x_[3] * std::cos(x_[0] - x_[2]);
+		auto const potential = m_ * SolveEOM::g * l_ * (3.0 - 2.0 * std::cos(x_[0]) - std::cos(x_[2]));
+
+		return kinetic + potential;
+	}
 
     // #endregion privateメンバ関数
 }
